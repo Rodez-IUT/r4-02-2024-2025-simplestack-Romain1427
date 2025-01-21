@@ -1,9 +1,9 @@
 # R4-02 Qualité de développement - SimpleStackTest
 
-### NOM : XXX
-### Prénom : YYY
+### NOM : PORCER
+### Prénom : Romain
 ### Groupe de TP :
-- [ ] A1-A2
+- [X] A1-A2
 - [ ] A3-A4
 - [ ] D
 
