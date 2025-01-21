@@ -18,7 +18,7 @@ Certaines caractéristiques du projet et les dépendances sont décrites dans le
 Suivez les indications de votre enseignant pour disposer d'un environnement prêt à l'emploi.
 2. Étudiez la structure du projet et le contenu du fichier ``pom.xml``.
 Quelle esl la version de JUnit utilisée par le projet ?  
-..............................
+La version utilisée est la 5.9.2
 
 > fix #1.2 Version de JUnit identifiée
 
