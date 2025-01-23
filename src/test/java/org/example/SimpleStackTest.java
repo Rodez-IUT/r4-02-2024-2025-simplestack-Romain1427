@@ -1,6 +1,5 @@
 package org.example;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +49,26 @@ class SimpleStackTest {
     }
 
     @Test
+    @DisplayName("Test when you take a look at the last item")
+    public void testPeeking() throws EmptyStackException {
+
+        // Given an empty stack
+        Stack stack = new SimpleStack();
+
+        // When we peek at the empty stack, Then should throws an EmptyStackException
+        assertThrows(EmptyStackException.class, stack::peek, "EmptyStackException not thrown");
+
+        // Given a bunch of pushed items in the empty stack
+        stack.push(new SimpleItem());
+        stack.push(new SimpleItem());
+        SimpleItem lastPushedItem = new SimpleItem();
+        stack.push(lastPushedItem);
+
+        // When we peek at the last item, it gives us the lastPushedItem
+        assertSame(lastPushedItem, stack.peek());
+    }
+
+    @Test
     // @Disabled
     @DisplayName("Test limit when trying to pop an empty stack")
     public void testPopOnEmptyStack()  {
@@ -59,5 +78,21 @@ class SimpleStackTest {
         // When we "pop" the stack, should throws an EmptyStackException.
         //assertThrows(EmptyStackException.class, ()->stack.pop(), "EmptyStackException not thrown");
         assertThrows(EmptyStackException.class, stack::pop, "EmptyStackException not thrown");
+    }
+
+    @Test
+    @DisplayName("Test limit when trying to pop an non-empty stack")
+    public void testPopOnStack() throws EmptyStackException {
+        // Given an stack
+        Stack stack = new SimpleStack();
+        SimpleItem item = new SimpleItem();
+        stack.push(item);
+
+        // When we pop the stack
+        SimpleItem poppedItem = (SimpleItem) stack.pop();
+
+        // Then it should empty the stack and give the last inserted element
+        assertTrue(stack.isEmpty(), "The stack should be empty");
+        assertSame(item, poppedItem);
     }
 }
